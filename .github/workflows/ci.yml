@@ -15,7 +15,7 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
     - name: Run tests
-      run: python -m pytest # Šī rinda tagad ir salabota un droša
+      run: python -m pytest
   build:
     name: 🐳 Docker build
     needs: test
@@ -27,7 +27,7 @@ jobs:
       run: |
         docker build -t myapp:${{ github.sha }} .
         echo "Built: myapp:${{ github.sha }}"
-   - name: Build Docker image (SemVer simulācija PB1 līmenī)
+    - name: Build Docker image (SemVer simulācija PB1 līmenī)
       run: |
         docker build -t myapp:v1.1.0 .
         echo "Built: myapp:v1.1.0"
