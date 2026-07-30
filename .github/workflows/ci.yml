@@ -15,7 +15,7 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
     - name: Run tests
-      run: pytest
+      run: python -m pytest # Šī rinda tagad ir salabota un droša
   build:
     name: 🐳 Docker build
     needs: test
@@ -31,8 +31,3 @@ jobs:
       run: |
         docker build -t myapp:v1.0.0 .
         echo "Built: myapp:v1.0.0"
-        # Piezīme:
-        # Profesionālā vidē šeit sekotu:
-        # - docker login
-        # - docker push uz reģistru (Docker Hub/GitHub Container Registry)
-        # - izvietošana staging/production
